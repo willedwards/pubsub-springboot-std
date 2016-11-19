@@ -52,7 +52,7 @@ So
 ```
 Hi try it out (then call GET /topic to see it’s there).
 
-3)  POST /register/callback
+3) open POST /register/callback
 
 with:
 ```
