@@ -1,6 +1,6 @@
 # Getting started on Google Cloud Platform for Java® 
 
-##This is a demo for STANDARD AppEngine and google pubsub
+##This is a demo for STANDARD AppEngine and google pubsub ![Build Status](https://travis-ci.org/willedwards/pubsub-springboot-std.svg?branch=master)
 
 >mvn clean install
 
