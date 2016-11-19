@@ -32,28 +32,49 @@ This will push the code remotely to https://<projectId>.appspot.com
 
 The project uses Swagger as the endpoint so you can open your browser at:
 
-https://<projectId>.appspot.com/swagger-ui.html
+https://yourprojectId.appspot.com/swagger-ui.html
 
 You can create topics and subscriptions with ease, and list them.
 
 Once a subscription is created, then register it via /register/callback on the swagger ui.
 
-
 Then click the /send/{topic}/{message} GET
 
-Enter "topic-pubsub-api-appengine-sample" for topic
+So
 
-Enter "test25" for message
+1) Open the pub-sub-controller (from the above link)
 
-Press Try it out.
+2) POST /topic, and you can make this : 
 
-Now, back in your terminal window type
+{
+  "topicPrefix": “customTopic"
+}
 
-```>gcloud app logs read```
+Hi try it out (then call GET /topic to see it’s there).
 
+3)  POST /register/callback
 
-This will show the logs from the code, and most importantly, show that the callback url was triggered.
+with:
 
+{
+  "callback": "https://myprojectId.appspot.com/messages/async",
+  "subscriberKey": “myFirstSubscriber",
+  "topicKey": “customTopic"
+}
+
+Hit try it out.
+This will register the subscriber for the topic = LesTopic, and call the endpoint.
+
+4) Finally
+
+GET /send/{topic}/{message}
+
+where topic = customTopic
+message = HappyBirthday
+
+Hit try it out.
+
+The callback /messages/async will receive the message “HappyBirthday” via the pubsub cloud, and you can see this in your appengine logs !
 
 ## Licensing
 
