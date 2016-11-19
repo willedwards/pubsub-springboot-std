@@ -45,32 +45,34 @@ So
 1) Open the pub-sub-controller (from the above link)
 
 2) POST /topic, and you can make this : 
-
+```
 {
   "topicPrefix": “customTopic"
 }
-
+```
 Hi try it out (then call GET /topic to see it’s there).
 
 3)  POST /register/callback
 
 with:
-
+```
 {
   "callback": "https://myprojectId.appspot.com/messages/async",
   "subscriberKey": “myFirstSubscriber",
   "topicKey": “customTopic"
 }
-
+```
 Hit try it out.
 This will register the subscriber for the topic = LesTopic, and call the endpoint.
 
 4) Finally
 
+```
 GET /send/{topic}/{message}
 
 where topic = customTopic
 message = HappyBirthday
+```
 
 Hit try it out.
 
